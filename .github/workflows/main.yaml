@@ -1,9 +1,6 @@
 name: Main
 
-on:
-  push:
-    branches:
-      - "*"
+on: [push]
 
 jobs:
 
@@ -65,4 +62,3 @@ jobs:
           assert test()
           assert not test()
 
-          
