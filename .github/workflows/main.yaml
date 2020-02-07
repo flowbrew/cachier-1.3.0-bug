@@ -23,7 +23,7 @@ jobs:
 
       - shell: python
         run: |
-          from cachier_test import cachier_test
+          from .cachier_test import cachier_test
 
           assert cachier_test.test()
           assert not cachier_test.test()
@@ -33,7 +33,7 @@ jobs:
 
       - shell: python
         run: |
-          from cachier_test import test
+          from .cachier_test import test
 
           assert not cachier_test.test()
           assert not cachier_test.test()
