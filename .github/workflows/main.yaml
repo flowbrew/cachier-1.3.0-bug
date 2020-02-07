@@ -21,7 +21,7 @@ jobs:
 
       - shell: python
         run: |
-          import cachier
+          from cachier import cachier
 
           def test():
             value = False
@@ -38,7 +38,7 @@ jobs:
 
       - shell: python
         run: |
-          import cachier
+          from cachier import cachier
 
           def test():
             value = False
