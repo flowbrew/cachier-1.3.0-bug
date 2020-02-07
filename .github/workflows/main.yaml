@@ -21,40 +21,46 @@ jobs:
 
       - shell: python
         run: |
+          from os import path
           from cachier import cachier
 
           def test():
-            value = False
+            sf = './side_effect'
+            if path.isfile(sf):
+              os.remove(sf)
 
             @cachier(cache_dir='./cache')
             def foo(x):
-              print('> foo()')
-              value = True
+              with open(sf, 'w') as f:
+                f.write('data')
               return True
 
             foo('test')
 
-            return value
+            return path.isfile(sf)
 
           assert test()
           assert not test()
 
       - shell: python
         run: |
+          from os import path
           from cachier import cachier
 
           def test():
-            value = False
+            sf = './side_effect'
+            if path.isfile(sf):
+              os.remove(sf)
 
             @cachier(cache_dir='./cache')
             def foo(x):
-              print('> foo()')
-              value = True
+              with open(sf, 'w') as f:
+                f.write('data')
               return True
 
             foo('test')
 
-            return value
+            return path.isfile(sf)
 
-          assert not test()
+          assert test()
           assert not test()
