@@ -23,17 +23,21 @@ jobs:
 
       - shell: python
         run: |
-          from .cachier_test import cachier_test
+          import sys,os
+          sys.path.append(os.getcwd())
+          from cachier_test import test
 
-          assert cachier_test.test()
-          assert not cachier_test.test()
+          assert test()
+          assert not test()
 
       - run: |
           ls -a ./cache
 
       - shell: python
         run: |
-          from .cachier_test import test
+          import sys,os
+          sys.path.append(os.getcwd())
+          from cachier_test import test
 
-          assert not cachier_test.test()
-          assert not cachier_test.test()
+          assert not test()
+          assert not test()
