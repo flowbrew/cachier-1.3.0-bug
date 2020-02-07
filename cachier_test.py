@@ -2,7 +2,7 @@ import os
 from cachier import cachier
 
 
-def test():
+def cache_was_used():
     sf = './side_effect'
     if os.path.isfile(sf):
         os.remove(sf)
@@ -15,4 +15,4 @@ def test():
 
     foo('test')
 
-    return os.path.isfile(sf)
+    return not os.path.isfile(sf)
