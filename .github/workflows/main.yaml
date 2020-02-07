@@ -28,6 +28,7 @@ jobs:
 
             @cachier(cache_dir='./cache')
             def foo(x):
+              print('> foo()')
               value = True
               return True
 
@@ -47,6 +48,7 @@ jobs:
 
             @cachier(cache_dir='./cache')
             def foo(x):
+              print('> foo()')
               value = True
               return True
 
