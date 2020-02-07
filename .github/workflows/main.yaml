@@ -18,12 +18,12 @@ jobs:
 
       - shell: python
         run: |
-          from os import path
+          import os
           from cachier import cachier
 
           def test():
             sf = './side_effect'
-            if path.isfile(sf):
+            if os.path.isfile(sf):
               os.remove(sf)
 
             @cachier(cache_dir='./cache')
@@ -34,7 +34,7 @@ jobs:
 
             foo('test')
 
-            return path.isfile(sf)
+            return os.path.isfile(sf)
 
           assert test()
           assert not test()
