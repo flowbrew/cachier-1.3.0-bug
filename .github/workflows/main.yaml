@@ -27,9 +27,11 @@ jobs:
             value = False
 
             @cachier(cache_dir='./cache')
-            def foo():
+            def foo(x):
               value = True
               return True
+
+            foo('test')
 
             return value
 
@@ -44,9 +46,11 @@ jobs:
             value = False
 
             @cachier(cache_dir='./cache')
-            def foo():
+            def foo(x):
               value = True
               return True
+
+            foo('test')
 
             return value
 
